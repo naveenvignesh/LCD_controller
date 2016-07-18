@@ -1,0 +1,325 @@
+#
+# set the inf.clk to be your interface name <name>.clk
+# set the inf.rst to be your interface name <name>.rst
+#
+if 0
+{
+set link_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25 /apps/synopsys/I-2013.12-SP5/libraries/syn/dw_foundation.sldb}
+set target_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25}
+analyze -format sverilog {
+/home/bo/boop3386/Documents/EE272/top_integrate_final/lcdif.sv
+/home/bo/boop3386/Documents/EE272/top_integrate_final/ahb_reg.sv
+/home/bo/boop3386/Documents/EE272/top_integrate_final/master.sv
+ }
+elaborate LCD_master
+create_clock HCLK -name clk -period 4.0
+set_propagated_clock clk
+set_clock_uncertainty 0.25 clk
+set_propagated_clock clk
+set_output_delay 0.5 -clock clk [all_outputs]
+set all_inputs_wo_rst_clk [remove_from_collection [remove_from_collection [all_inputs] [get_port HCLK]] [get_port HRESET]]
+set_driving_cell -lib_cell CND2X1 $all_inputs_wo_rst_clk
+set_input_delay 0.6 -clock clk $all_inputs_wo_rst_clk
+set_output_delay 0.6 -clock clk [all_outputs]
+set_fix_hold [ get_clocks clk ]
+set_output_delay 0.3 -clock clk [all_outputs]
+set_wire_load_model -name T8G00TW8
+compile_ultra
+create_clock HCLK -name clk -period 5.0
+update_timing
+report_timing -max_paths 3
+write -hierarchy -format verilog -output master_gates.v
+#
+#
+set link_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25 /apps/synopsys/I-2013.12-SP5/libraries/syn/dw_foundation.sldb}
+set target_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25}
+analyze -format sverilog {
+/home/bo/boop3386/Documents/EE272/top_integrate_final/lcdif.sv
+/home/bo/boop3386/Documents/EE272/top_integrate_final/ahb_reg.sv
+/home/bo/boop3386/Documents/EE272/top_integrate_final/slave.sv
+ }
+elaborate LCD_slave
+create_clock HCLK -name clk -period 4.0
+set_propagated_clock clk
+set_clock_uncertainty 0.25 clk
+set_propagated_clock clk
+set_output_delay 0.5 -clock clk [all_outputs]
+set all_inputs_wo_rst_clk [remove_from_collection [remove_from_collection [all_inputs] [get_port HCLK]] [get_port HRESET]]
+set_driving_cell -lib_cell CND2X1 $all_inputs_wo_rst_clk
+set_input_delay 0.6 -clock clk $all_inputs_wo_rst_clk
+set_output_delay 0.6 -clock clk [all_outputs]
+set_fix_hold [ get_clocks clk ]
+set_output_delay 0.3 -clock clk [all_outputs]
+set_wire_load_model -name T8G00TW8
+compile_ultra
+create_clock HCLK -name clk -period 5.0
+update_timing
+report_timing -max_paths 3
+write -hierarchy -format verilog -output slave_gates.v
+#
+#
+
+set link_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25 /apps/synopsys/I-2013.12-SP5/libraries/syn/dw_foundation.sldb}
+set target_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25}
+analyze -format sverilog {
+/home/bo/boop3386/Documents/EE272/top_integrate_final/lcdif.sv
+/home/bo/boop3386/Documents/EE272/top_integrate_final/ahb_reg.sv
+/home/bo/boop3386/Documents/EE272/top_integrate_final/dma_fifo.sv
+ }
+elaborate dma_fifo
+create_clock clk -name clk -period 4.0
+set_propagated_clock clk
+set_clock_uncertainty 0.25 clk
+set_propagated_clock clk
+set_output_delay 0.5 -clock clk [all_outputs]
+set all_inputs_wo_rst_clk [remove_from_collection [remove_from_collection [all_inputs] [get_port clk]] [get_port rst]]
+set_driving_cell -lib_cell CND2X1 $all_inputs_wo_rst_clk
+set_input_delay 0.6 -clock clk $all_inputs_wo_rst_clk
+set_output_delay 0.6 -clock clk [all_outputs]
+set_fix_hold [ get_clocks clk ]
+set_output_delay 0.3 -clock clk [all_outputs]
+set_wire_load_model -name T8G00TW8
+compile_ultra
+create_clock clk -name clk -period 5.0
+update_timing
+report_timing -max_paths 3
+write -hierarchy -format verilog -output dma_fifo_gates.v
+#
+set link_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25 /apps/synopsys/I-2013.12-SP5/libraries/syn/dw_foundation.sldb}
+set target_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25}
+analyze -format sverilog {
+/home/bo/boop3386/Documents/EE272/top_integrate_final/lcdif.sv
+/home/bo/boop3386/Documents/EE272/top_integrate_final/ahb_reg.sv
+/home/bo/boop3386/Documents/EE272/top_integrate_final/dma_fifo_ctrl_logic.sv
+ }
+elaborate dma_fifo_ctrl_logic
+create_clock clk -name clk -period 4.0
+set_propagated_clock clk
+set_clock_uncertainty 0.25 clk
+set_propagated_clock clk
+set_output_delay 0.5 -clock clk [all_outputs]
+set all_inputs_wo_rst_clk [remove_from_collection [remove_from_collection [all_inputs] [get_port clk]] [get_port rst]]
+set_driving_cell -lib_cell CND2X1 $all_inputs_wo_rst_clk
+set_input_delay 0.6 -clock clk $all_inputs_wo_rst_clk
+set_output_delay 0.6 -clock clk [all_outputs]
+set_fix_hold [ get_clocks clk ]
+set_output_delay 0.3 -clock clk [all_outputs]
+set_wire_load_model -name T8G00TW8
+compile_ultra
+create_clock clk -name clk -period 5.0
+update_timing
+report_timing -max_paths 3
+write -hierarchy -format verilog -output dma_fifo_ctrl_logic_gates.v
+#
+set link_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25 /apps/synopsys/I-2013.12-SP5/libraries/syn/dw_foundation.sldb}
+set target_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25}
+analyze -format sverilog {
+/home/bo/boop3386/Documents/EE272/top_integrate_final/lcdif.sv
+/home/bo/boop3386/Documents/EE272/top_integrate_final/ahb_reg.sv
+/home/bo/boop3386/Documents/EE272/top_integrate_final/timing_control_sm.sv
+ }
+elaborate timing_control
+create_clock pixel_clk -name clk -period 4.0
+set_propagated_clock clk
+set_clock_uncertainty 0.25 clk
+set_propagated_clock clk
+set_output_delay 0.5 -clock clk [all_outputs]
+set all_inputs_wo_rst_clk [remove_from_collection [remove_from_collection [all_inputs] [get_port clk]] [get_port rst]]
+set_driving_cell -lib_cell CND2X1 $all_inputs_wo_rst_clk
+set_input_delay 0.6 -clock clk $all_inputs_wo_rst_clk
+set_output_delay 0.6 -clock clk [all_outputs]
+set_fix_hold [ get_clocks clk ]
+set_output_delay 0.3 -clock clk [all_outputs]
+set_wire_load_model -name T8G00TW8
+compile_ultra
+create_clock pixel_clk -name clk -period 5.0
+update_timing
+report_timing -max_paths 3
+write -hierarchy -format verilog -output timing_control_sm_gates.v
+#
+#
+set link_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25 /apps/synopsys/I-2013.12-SP5/libraries/syn/dw_foundation.sldb}
+set target_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25}
+analyze -format sverilog {
+/home/bo/boop3386/Documents/EE272/top_integrate_final/lcdif.sv
+/home/bo/boop3386/Documents/EE272/top_integrate_final/ahb_reg.sv
+/home/bo/boop3386/Documents/EE272/top_integrate_final/panel_clock_generator_new.sv
+ }
+elaborate clk_generator
+create_clock HCLK -name clk -period 4.0
+set_propagated_clock clk
+set_clock_uncertainty 0.25 clk
+set_propagated_clock clk
+set_output_delay 0.5 -clock clk [all_outputs]
+set all_inputs_wo_rst_clk [remove_from_collection [remove_from_collection [all_inputs] [get_port HCLK]] [get_port rst]]
+set_driving_cell -lib_cell CND2X1 $all_inputs_wo_rst_clk
+set_input_delay 0.6 -clock clk $all_inputs_wo_rst_clk
+set_output_delay 0.6 -clock clk [all_outputs]
+set_fix_hold [ get_clocks clk ]
+set_output_delay 0.3 -clock clk [all_outputs]
+set_wire_load_model -name T8G00TW8
+compile_ultra
+create_clock HCLK -name clk -period 5.0
+update_timing
+report_timing -max_paths 3
+write -hierarchy -format verilog -output panel_clock_generator_new_gates.v
+#
+#
+set link_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25 /apps/synopsys/I-2013.12-SP5/libraries/syn/dw_foundation.sldb}
+set target_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25}
+analyze -format sverilog {
+/home/bo/boop3386/Documents/EE272/top_integrate_final/lcdif.sv
+/home/bo/boop3386/Documents/EE272/top_integrate_final/ahb_reg.sv
+/home/bo/boop3386/Documents/EE272/top_integrate_final/decoder.sv
+ }
+elaborate decoder_32 
+create_clock clk -name clk -period 4.0
+set_propagated_clock clk
+set_clock_uncertainty 0.25 clk
+set_propagated_clock clk
+set_output_delay 0.5 -clock clk [all_outputs]
+set all_inputs_wo_rst_clk [remove_from_collection [remove_from_collection [all_inputs] [get_port clk]] [get_port rst]]
+set_driving_cell -lib_cell CND2X1 $all_inputs_wo_rst_clk
+set_input_delay 0.6 -clock clk $all_inputs_wo_rst_clk
+set_output_delay 0.6 -clock clk [all_outputs]
+set_fix_hold [ get_clocks clk ]
+set_output_delay 0.3 -clock clk [all_outputs]
+set_wire_load_model -name T8G00TW8
+compile_ultra
+create_clock clk -name clk -period 5.0
+update_timing
+report_timing -max_paths 3
+write -hierarchy -format verilog -output decoder_32_gates.v
+
+elaborate decoder_16
+create_clock clk -name clk -period 4.0
+set_propagated_clock clk
+set_clock_uncertainty 0.25 clk
+set_propagated_clock clk
+set_output_delay 0.5 -clock clk [all_outputs]
+set all_inputs_wo_rst_clk [remove_from_collection [remove_from_collection [all_inputs] [get_port clk]] [get_port rst]]
+set_driving_cell -lib_cell CND2X1 $all_inputs_wo_rst_clk
+set_input_delay 0.6 -clock clk $all_inputs_wo_rst_clk
+set_output_delay 0.6 -clock clk [all_outputs]
+set_fix_hold [ get_clocks clk ]
+set_output_delay 0.3 -clock clk [all_outputs]
+set_wire_load_model -name T8G00TW8
+compile_ultra
+create_clock clk -name clk -period 5.0
+update_timing
+report_timing -max_paths 3
+write -hierarchy -format verilog -output decoder_16_gates.v
+
+elaborate decoder_8
+create_clock clk -name clk -period 4.0
+set_propagated_clock clk
+set_clock_uncertainty 0.25 clk
+set_propagated_clock clk
+set_output_delay 0.5 -clock clk [all_outputs]
+set all_inputs_wo_rst_clk [remove_from_collection [remove_from_collection [all_inputs] [get_port clk]] [get_port rst]]
+set_driving_cell -lib_cell CND2X1 $all_inputs_wo_rst_clk
+set_input_delay 0.6 -clock clk $all_inputs_wo_rst_clk
+set_output_delay 0.6 -clock clk [all_outputs]
+set_fix_hold [ get_clocks clk ]
+set_output_delay 0.3 -clock clk [all_outputs]
+set_wire_load_model -name T8G00TW8
+compile_ultra
+create_clock clk -name clk -period 5.0
+update_timing
+report_timing -max_paths 3
+write -hierarchy -format verilog -output decoder_8_gates.v
+
+elaborate decoder_4
+create_clock clk -name clk -period 4.0
+set_propagated_clock clk
+set_clock_uncertainty 0.25 clk
+set_propagated_clock clk
+set_output_delay 0.5 -clock clk [all_outputs]
+set all_inputs_wo_rst_clk [remove_from_collection [remove_from_collection [all_inputs] [get_port clk]] [get_port rst]]
+set_driving_cell -lib_cell CND2X1 $all_inputs_wo_rst_clk
+set_input_delay 0.6 -clock clk $all_inputs_wo_rst_clk
+set_output_delay 0.6 -clock clk [all_outputs]
+set_fix_hold [ get_clocks clk ]
+set_output_delay 0.3 -clock clk [all_outputs]
+set_wire_load_model -name T8G00TW8
+compile_ultra
+create_clock clk -name clk -period 5.0
+update_timing
+report_timing -max_paths 3
+write -hierarchy -format verilog -output decoder_4_gates.v
+
+elaborate decoder_2
+create_clock clk -name clk -period 4.0
+set_propagated_clock clk
+set_clock_uncertainty 0.25 clk
+set_propagated_clock clk
+set_output_delay 0.5 -clock clk [all_outputs]
+set all_inputs_wo_rst_clk [remove_from_collection [remove_from_collection [all_inputs] [get_port clk]] [get_port rst]]
+set_driving_cell -lib_cell CND2X1 $all_inputs_wo_rst_clk
+set_input_delay 0.6 -clock clk $all_inputs_wo_rst_clk
+set_output_delay 0.6 -clock clk [all_outputs]
+set_fix_hold [ get_clocks clk ]
+set_output_delay 0.3 -clock clk [all_outputs]
+set_wire_load_model -name T8G00TW8
+compile_ultra
+create_clock clk -name clk -period 5.0
+update_timing
+report_timing -max_paths 3
+write -hierarchy -format verilog -output decoder_2_gates.v
+quit
+#
+#
+set link_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25 /apps/synopsys/I-2013.12-SP5/libraries/syn/dw_foundation.sldb}
+set target_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25}
+analyze -format sverilog {
+/home/bo/boop3386/Documents/EE272/top_integrate_final/lcdif.sv
+/home/bo/boop3386/Documents/EE272/top_integrate_final/ahb_reg.sv
+/home/bo/boop3386/Documents/EE272/top_integrate_final/pixel_serializer_edit.sv
+ }
+elaborate pixel_serializer
+create_clock hclk -name hclk -period 4.0
+set_propagated_clock hclk
+set_clock_uncertainty 0.25 hclk
+set_propagated_clock hclk
+set_output_delay 0.5 -clock hclk [all_outputs]
+set all_inputs_wo_rst_clk [remove_from_collection [remove_from_collection [all_inputs] [get_port hclk]] [get_port rst]]
+set_driving_cell -lib_cell CND2X1 $all_inputs_wo_rst_clk
+set_input_delay 0.6 -clock hclk $all_inputs_wo_rst_clk
+set_output_delay 0.6 -clock hclk [all_outputs]
+set_fix_hold [ get_clocks hclk ]
+set_output_delay 0.3 -clock hclk [all_outputs]
+set_wire_load_model -name T8G00TW8
+compile_ultra
+create_clock hclk -name hclk -period 5.0
+update_timing
+report_timing -max_paths 3
+write -hierarchy -format verilog -output pixel_serializer_gates.v
+quit
+#
+}
+#
+set link_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25 /apps/synopsys/I-2013.12-SP5/libraries/syn/dw_foundation.sldb}
+set target_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25}
+analyze -format sverilog {
+/home/bo/boop3386/Documents/EE272/top_integrate_final/lcd.sv
+ }
+elaborate lcd
+create_clock clock.HCLK -name hclk -period 4.0
+set_propagated_clock hclk
+set_clock_uncertainty 0.25 hclk
+set_propagated_clock hclk
+set_output_delay 0.5 -clock hclk [all_outputs]
+set all_inputs_wo_rst_clk [remove_from_collection [remove_from_collection [all_inputs] [get_port clock.HCLK]] [get_port clock.HRESET]]
+set_driving_cell -lib_cell CND2X1 $all_inputs_wo_rst_clk
+set_input_delay 0.6 -clock hclk $all_inputs_wo_rst_clk
+set_output_delay 0.6 -clock hclk [all_outputs]
+set_fix_hold [ get_clocks hclk ]
+set_output_delay 0.3 -clock hclk [all_outputs]
+set_wire_load_model -name T8G00TW8
+compile_ultra
+create_clock clock.HCLK -name hclk -period 5.0
+update_timing
+report_timing -max_paths 3
+write -hierarchy -format verilog -output lcd_gates.v
+quit
+#

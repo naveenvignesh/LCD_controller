@@ -1,0 +1,65 @@
+ncverilog: 14.10-p001: (c) Copyright 1995-2014 Cadence Design Systems, Inc.
+TOOL:	ncverilog	14.10-p001: Started on Jul 08, 2016 at 21:09:26 PDT
+ncverilog
+	+libext+.tsbvlibp
+	+access+r
+	+sv
+	-y
+	/apps/toshiba/sjsu/verilog/tc240c
+	../tblcd.sv
+	lcd_gates.v
+file: ../tblcd.sv
+`include "lcdif.sv"
+                  |
+ncvlog: *E,COFILX (../tblcd.sv,7|18): cannot open include file 'lcdif.sv'.
+`include "uvm.sv"
+                |
+ncvlog: *E,COFILX (../tblcd.sv,11|16): cannot open include file 'uvm.sv'.
+`include "tbregs.svp"
+                    |
+ncvlog: *E,COFILX (../tblcd.sv,18|20): cannot open include file 'tbregs.svp'.
+`include "tbdef.svp"
+                   |
+ncvlog: *E,COFILX (../tblcd.sv,20|19): cannot open include file 'tbdef.svp'.
+`include "lcduvm.svp"
+                    |
+ncvlog: *E,COFILX (../tblcd.sv,22|20): cannot open include file 'lcduvm.svp'.
+import uvm_pkg::*;
+             |
+ncvlog: *E,NOPBIND (../tblcd.sv,13|13): Package uvm_pkg could not be bound.
+	package worklib.tl_pkg:sv
+		errors: 5, warnings: 0
+import uvm_pkg::*;
+             |
+ncvlog: *E,NOPBIND (../tblcd.sv,31|13): Package uvm_pkg could not be bound.
+import tl_pkg::*;
+            |
+ncvlog: *E,NOPBIND (../tblcd.sv,32|12): Package tl_pkg could not be bound.
+	module worklib.top:sv
+		errors: 2, warnings: 0
+`include "lcd.sv"
+                |
+ncvlog: *E,COFILX (../tblcd.sv,95|16): cannot open include file 'lcd.sv'.
+`include "mem32x32.sv"
+                     |
+ncvlog: *E,COFILX (../tblcd.sv,96|21): cannot open include file 'mem32x32.sv'.
+`include "mem128x32.sv"
+                      |
+ncvlog: *E,COFILX (../tblcd.sv,97|22): cannot open include file 'mem128x32.sv'.
+`include "mem256x32.sv"
+                      |
+ncvlog: *E,COFILX (../tblcd.sv,98|22): cannot open include file 'mem256x32.sv'.
+file: lcd_gates.v
+	module worklib.LCD_slave:v
+		errors: 0, warnings: 0
+	module worklib.timing_control:v
+		errors: 0, warnings: 0
+	module worklib.pixel_serializer:v
+		errors: 0, warnings: 0
+	module worklib.lcd:v
+		errors: 0, warnings: 0
+ncvlog: *W,LIBNOU: Library "/apps/toshiba/sjsu/verilog/tc240c" given but not used.
+	Total errors/warnings found outside modules and primitives:
+		errors: 1, warnings: 1
+ncverilog: *E,VLGERR: An error occurred during parsing.  Review the log file for errors with the code *E and fix those identified problems to proceed.  Exiting with code (status 1).
+TOOL:	ncverilog	14.10-p001: Exiting on Jul 08, 2016 at 21:09:27 PDT  (total: 00:00:01)

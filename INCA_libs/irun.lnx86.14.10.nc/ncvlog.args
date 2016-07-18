@@ -1,0 +1,32 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+-XLMODE
+./INCA_libs/irun.lnx86.14.10.nc
+-RUNMODE
+-UVMNOSINGLESTEP
+-define
+UVM_PLI
+-INCDIR
+.
+-uvmnocdnsextra
+-YDIR
+/apps/toshiba/sjsu/verilog/tc240c
+-LIBEXT
+.tsbvlibp
+tblcd.sv
+-CDSLIB
+./INCA_libs/irun.lnx86.14.10.nc/cdsrun.lib
+-HDLVAR
+./INCA_libs/irun.lnx86.14.10.nc/hdlrun.var
+-INCDIR
+/home/morris/uvm-1.2/src
+-DEFINE
+USE_PARAMETERIZED_WRAPPER
+-MESSAGES
+-UPDATE
+-XLLIBSTORE
+./INCA_libs/irun.lnx86.14.10.nc/xllibs
+-ALLOWUNBOUND
+-ENABLEOIGW

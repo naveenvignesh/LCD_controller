@@ -1,0 +1,15 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+-incdir
+.
+-access
+rw
+-uvmhome
+/home/morris/uvm-1.2
+-uvmnocdnsextra
+-y
+/apps/toshiba/sjsu/verilog/tc240c
++libext+.tsbvlibp
+tblcd.sv

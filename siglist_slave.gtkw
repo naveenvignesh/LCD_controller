@@ -1,0 +1,58 @@
+[*]
+[*] GTKWave Analyzer v3.3.65 (w)1999-2015 BSI
+[*] Sat Apr 23 08:55:19 2016
+[*]
+[dumpfile] "/home/bo/boop3386/Documents/EE272/top_integrate_new/lcd.vcd"
+[dumpfile_mtime] "Sat Apr 23 08:28:34 2016"
+[dumpfile_size] 313664943
+[savefile] "/home/bo/boop3386/Documents/EE272/top_integrate_new/siglist_slave.gtkw"
+[timestart] 165700
+[size] 1131 600
+[pos] 76 -71
+*-15.397831 251000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.l.
+[treeopen] top.l.dma_logic.
+[sst_width] 294
+[signals_width] 308
+[sst_expanded] 1
+[sst_vpaned_height] 151
+@28
+top.l.clk_div.HCLK
+top.l.time_ctrl.LCDDCLK
+top.l.clk_div.pixel_clk
+@29
+top.l.clk_div.en
+@28
+top.l.LCD_slave_inst.HRESET
+top.l.LCD_slave_inst.HSEL
+top.l.LCD_slave_inst.HWRITE
+@22
+top.l.LCD_slave_inst.HADDR[31:0]
+top.l.LCD_slave_inst.LCD_CFG_mem_c[31:0]
+top.l.LCD_slave_inst.LCD_reg_cfg[31:0]
+top.l.LCD_slave_inst.LCD_CTRL_reg_c[31:0]
+top.l.LCD_slave_inst.LCD_reg_ctrl[31:0]
+top.l.LCD_slave_inst.ahbs_addr_reg[31:0]
+top.l.LCD_slave_inst.HWDATA[31:0]
+@28
+top.l.LCD_slave_inst.HTRANS[1:0]
+top.l.LCD_slave_inst.HREADY
+@22
+top.l.LCD_slave_inst.lcd_ctrl[29:0]
+@28
+top.l.LCD_slave_inst.HRESP[1:0]
+@22
+top.l.LCD_slave_inst.ahbs_addr_reg_c[31:0]
+top.l.LCD_slave_inst.LCD_CFG_mem_c[31:0]
+top.l.LCD_slave_inst.LCD_TIMH_reg_c[31:0]
+top.l.LCD_slave_inst.LCD_reg_timh[31:0]
+top.l.LCD_slave_inst.LCD_reg_ctrl[31:0]
+top.l.LCD_slave_inst.LCD_TIMH_reg_c[31:0]
+@28
+top.l.LCD_slave_inst.state_q[1:0]
+top.l.LCD_slave_inst.state_ns[1:0]
+top.Q.HCLK
+top.Q.HBURST[2:0]
+[pattern_trace] 1
+[pattern_trace] 0

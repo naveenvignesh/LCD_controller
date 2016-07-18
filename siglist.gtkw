@@ -1,0 +1,68 @@
+[*]
+[*] GTKWave Analyzer v3.3.65 (w)1999-2015 BSI
+[*] Fri Apr 22 22:25:57 2016
+[*]
+[dumpfile] "/home/bo/boop3386/Documents/EE272/top_integrate_new/lcd.vcd"
+[dumpfile_mtime] "Fri Apr 22 22:07:11 2016"
+[dumpfile_size] 266246958
+[savefile] "/home/bo/boop3386/Documents/EE272/top_integrate_new/siglist.gtkw"
+[timestart] 3046630000
+[size] 1103 600
+[pos] 12 12
+*-19.889502 3047871000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.l.
+[sst_width] 294
+[signals_width] 308
+[sst_expanded] 1
+[sst_vpaned_height] 151
+@28
+top.l.clk_div.rst
+top.l.clk_div.HCLK
+top.l.time_ctrl.pixel_clk
+top.l.time_ctrl.lineclk
+@22
+top.l.time_ctrl.line_count[11:0]
+top.l.time_ctrl.line_count_nxt[11:0]
+top.l.time_ctrl.linestate[3:0]
+top.l.time_ctrl.nxtlinestate[3:0]
+top.l.time_ctrl.counter_clicks[11:0]
+top.l.time_ctrl.counter_clicks_nxt[11:0]
+top.l.time_ctrl.vstate[3:0]
+top.l.time_ctrl.hstate[3:0]
+top.l.time_ctrl.vnxtstate[3:0]
+top.l.time_ctrl.lcd_timv[31:0]
+top.l.time_ctrl.lcd_timh[31:0]
+top.l.LCD_slave_inst.LCD_TIMH_reg_c[31:0]
+@28
+top.l.clk_div.rst_comb
+@22
+top.l.time_ctrl.x_count[9:0]
+top.l.time_ctrl.y_count[9:0]
+@28
+top.l.time_ctrl.lineclk
+top.l.time_ctrl.lcd_en
+top.l.time_ctrl.lcd_en
+@22
+top.l.clk_div.temp_count[4:0]
+@28
+top.l.time_ctrl.LCDFP
+@22
+top.l.time_ctrl.hnxtstate[3:0]
+@28
+top.l.time_ctrl.fp
+@22
+top.l.LCD_slave_inst.HRDATA[31:0]
+@28
+top.l.LCD_slave_inst.HRESET
+top.l.LCD_slave_inst.HRESP[1:0]
+top.l.LCD_slave_inst.HSEL
+top.l.LCD_slave_inst.HTRANS[1:0]
+top.l.LCD_slave_inst.HWRITE
+@22
+top.l.LCD_slave_inst.HADDR[31:0]
+top.l.LCD_slave_inst.HWDATA[31:0]
+@28
+top.l.LCD_slave_inst.HREADY
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,0 +1,23 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+-RUNMODE
+-INCDIR
+.
+-uvmnocdnsextra
+-INCDIR
+/home/morris/uvm-1.2/src
+-DEFINE
+USE_PARAMETERIZED_WRAPPER
+-UPDATE
+-CDSLIB
+./INCA_libs/irun.lnx86.14.10.nc/cdsrun.lib
+-HDLVAR
+./INCA_libs/irun.lnx86.14.10.nc/hdlrun.var
+-work
+worklib
+-UVMNOSINGLESTEP
+-define
+UVM_PLI
+/home/morris/uvm-1.2/src/uvm_pkg.sv

@@ -1,0 +1,75 @@
+[*]
+[*] GTKWave Analyzer v3.3.65 (w)1999-2015 BSI
+[*] Wed Apr 27 05:38:40 2016
+[*]
+[dumpfile] "/home/bo/boop3386/Documents/EE272/top_integrate_final/lcd.vcd"
+[dumpfile_mtime] "Wed Apr 27 03:17:55 2016"
+[dumpfile_size] 14065165
+[savefile] "/home/bo/boop3386/Documents/EE272/top_integrate_final/siglist_test1.gtkw"
+[timestart] 610540
+[size] 1920 1003
+[pos] -1 -1
+*-14.000000 270000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.l.
+[treeopen] top.l.dma_logic.
+[sst_width] 248
+[signals_width] 371
+[sst_expanded] 1
+[sst_vpaned_height] 292
+@28
+top.l.clk_div.HCLK
+top.l.clk_div.LCDDCLK
+top.l.clk_div.pixel_clk_phaseshift
+top.lcdout.LCDENA_LCDM
+top.lcdout.LCDFP
+top.lcdout.LCDLE
+@22
+top.lcdout.LCDVD[23:0]
+@28
+top.l.dma_logic.pull
+top.l.PS.pull
+@22
+top.l.dma_logic.data_out[31:0]
+top.l.dma_logic.data_out_bottom[31:0]
+top.l.PS.data_in_fifo[31:0]
+top.l.dma_logic.data_out_top[31:0]
+top.l.PS.dec_2_bbp16_0.data_in[31:0]
+top.l.PS.dec_2_bbp16_0.data_out[15:0]
+@28
+top.l.PS.dec_2_bbp16_0.en
+top.l.PS.dec_2_bbp16_0.sel
+@22
+top.l.PS.pixel_counter[4:0]
+top.l.dma_logic.data_in[31:0]
+@28
+top.l.dma_logic.dma_req
+top.l.dma_logic.push
+top.l.dma_logic.push_top
+top.l.dma_logic.push_bottom
+@22
+top.l.LCD_master_inst.DMA_addr_d[31:0]
+@28
+top.l.LCD_master_inst.HCLK
+@22
+top.l.LCD_master_inst.DMA_addr_reg[31:0]
+top.l.LCD_master_inst.DMA_addr_d[31:0]
+top.l.LCD_master_inst.FIFO_data[31:0]
+@28
+top.l.LCD_master_inst.HGRANT
+@22
+top.l.LCD_master_inst.HRDATA[31:0]
+@28
+top.l.LCD_master_inst.HREADY
+top.l.LCD_master_inst.HBURST[2:0]
+top.l.LCD_master_inst.HRESET
+top.l.LCD_master_inst.FIFO_push
+@22
+top.l.LCD_master_inst.FIFO_data[31:0]
+@28
+top.l.LCD_master_inst.state_q[2:0]
+top.l.LCD_master_inst.state_ns[2:0]
+@29
+top.l.LCD_master_inst.FIFO_push_d
+[pattern_trace] 1
+[pattern_trace] 0

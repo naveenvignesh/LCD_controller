@@ -1,0 +1,67 @@
+#!/usr/bin/python
+
+import sys
+import time
+import os
+import subprocess
+import socket
+import argparse
+from string import find
+from datetime import date
+####################################
+# checks to see if a file contains #
+# any substrings passed            #
+####################################
+def filehasany(fn,stx):
+  rv = False
+  if(os.path.isfile(fn)):
+    fw = open(fn,"r")
+    for ln in fw.readlines():
+      for sub in stx:
+        if( find(ln.lower(),sub)>= 0 ):
+          print "-->",ln.strip(),"<--"
+          rv=True
+  return rv
+
+###############################
+# copies a file if needed     #
+###############################
+def copyifneeded(localfile,remotefile):
+  if(os.path.isfile(localfile)):
+    return
+  print("\nCopying {0} to local directory".format(str(localfile)))
+  cmd = ["cp", str(remotefile), str(localfile) ]
+  subprocess.call(cmd)
+#####################################
+# run the synopsys synthesizer      #
+#####################################
+def runsynthesis():
+  fq = open("sss","w")
+  fq.write("""#!/usr/bin/csh
+source design_ssc.csh
+which dc_shell
+dc_shell -f synthesis.script | tee synres.txt
+""")
+  fq.close()
+  subprocess.call(["chmod","+x","sss"])
+  subprocess.call(["rm","-f","synres.txt"])
+  subprocess.call(["./sss"])
+  if( not os.path.isfile("synres.txt") ):
+    #resfile.write("///// Synthesis failed to produce results /////\n")
+    print "\n\nNo synthesis results\n\n"
+    exit()
+  if( filehasany("synres.txt",["error","latch","violated","timing arc"]) ):
+    #resfile.write("///// Synthesis failed /////\n");
+    print "\n\nsynthesis failed\n\n"
+    exit()
+####################################
+# The main routine                 #
+####################################
+def mainx():
+  copyifneeded("sv_dw","/home/morris/scrambledeggs/sv_dw")
+  copyifneeded("sv_nc","/home/morris/scrambledeggs/sv_nc")
+  copyifneeded("sv_ncgates","/home/morris/scrambledeggs/sv_ncgates")
+  copyifneeded("design_ssc.csh","/home/morris/scrambledeggs/design_ssc.csh")
+  runsynthesis()
+
+mainx()

@@ -1,0 +1,4 @@
+#!/usr/bin/csh
+source /apps/design_environment.csh
+setenv UVM_HOME /home/morris/uvm-1.2
+irun -incdir . -access rw -uvmhome /home/morris/uvm-1.2 -uvmnocdnsextra -y /apps/toshiba/sjsu/verilog/tc240c +libext+.tsbvlibp  $argv
